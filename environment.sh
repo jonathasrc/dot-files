@@ -1,4 +1,4 @@
-#!/bin/bash
+#bin/bash
 
  snap install spotify
  snap install code
@@ -57,9 +57,10 @@ fi
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
  nvm install node
 
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+# INSTALLL VIM PLUG
 
+curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
  source ~/.bashrc
  git config --global user.name "Jonathas Rodrigues"
  git config --global user.email "jrc1@ifal.edu.br"
