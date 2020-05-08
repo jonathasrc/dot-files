@@ -1,12 +1,12 @@
 #bin/bash
+#sudo apt-get install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev
 
- snap install spotify
- snap install code
 
 app[0]="git-all"
 app[1]="neovim"
 app[2]="tmux"
 app[3]="tmuxinator"
+app[4]="spotify-client"
 
 libs[0]="apt-transport-https"
 libs[1]="ca-certificates"
@@ -29,7 +29,10 @@ dockerr[4]="runc"
  apt remove ${dockerr[*]}
  apt autoremove
 
- apt update
+curl https://pyenv.run | bash
+
+curl -sS https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add - 
+echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
 
  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
  apt-key fingerprint 0EBFCD88
@@ -38,8 +41,8 @@ dockerr[4]="runc"
    disco \
    stable"
 
- apt update
- apt install docker-ce docker-ce-cli containerd.io -y
+apt update
+apt install docker-ce docker-ce-cli containerd.io -y
  curl -L "https://github.com/docker/compose/releases/download/1.25.3/docker-compose-$(uname -s)-$(uname -m)"  -o /usr/local/bin/docker-compose
  chmod +x /usr/local/bin/docker-compose
  ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
@@ -51,6 +54,7 @@ then
 fi
 
 # INSTALL NVM
+
  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
  
  export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
@@ -59,13 +63,13 @@ fi
 
 # INSTALLL VIM PLUG
 
-curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
+#curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
  source ~/.bashrc
  git config --global user.name "Jonathas Rodrigues"
  git config --global user.email "jrc1@ifal.edu.br"
 
-
+exec $SHELL
  git --version
  docker version 
  docker-compose --version

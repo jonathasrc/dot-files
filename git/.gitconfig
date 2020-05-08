@@ -1,0 +1,28 @@
+[user]
+    name = Jonathas Rodrigues
+    email = jonathasrc96@gmail.com
+    username = dom
+[core]
+    editor = nvim
+[color]
+    ui = true
+    pager = true
+
+[color "branch"]
+    current = yellow reverse
+    local = yellow
+    remote = green
+
+[color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+[color "status"]
+    added = yellow
+    changed = green
+    untracked = cyan
+[push]
+    default = matching
+[pull]
+    rebase = true
