@@ -1,6 +1,9 @@
 #bin/bash
 #sudo apt-get install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev
-
+#app falta colocar a instalacao
+# vagrant
+# asdf
+# virtualbox
 
 app[0]="git-all"
 app[1]="neovim"
