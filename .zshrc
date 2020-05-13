@@ -113,6 +113,14 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+alias update='sudo apt update && sudo apt upgrade -y && sudo snap refresh'
+# config nvm / node
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="PYENV_ROOT/bin:$PATH"
 
@@ -126,7 +134,7 @@ export PATH="$HOME/POETRY_HOME:$PATH"
 export EDITOR="vim"
 
 # CONFIG ASDF
-$HOME/.asdf/asdf.sh
+#$HOME/.asdf/asdf.sh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -156,6 +164,7 @@ POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=''
 POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX='> '
 POWERLEVEL9K_USER_DEFAULT_BACKGROUND=deeppink4
 POWERLEVEL9K_USER_DEFAULT_FOREGROUND=white
+POWERLEVEL9K_INSTANT_PROMPT=quiet
 
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(user ssh root_indicator dir dir_writable vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(command_execution_time status time battery)
