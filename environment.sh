@@ -55,7 +55,14 @@ if ! apt install ${app[*]} -y
 then 
    echo "UNABLE INSTALL APP"
 fi
+# INSTALL VAGRANT
 
+git clone https://github.com/hashicorp/vagrant.git
+sudo cp -r vagrant /etc/opt/
+cd /etc/opt/vagrant/
+bundle install # ruby precisa está instalado
+ln -sf ./exec/vagrant /usr/local/bin/vagrant
+cd 
 # INSTALL NVM
 
  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
@@ -69,8 +76,6 @@ fi
 #curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
  source ~/.bashrc
- git config --global user.name "Jonathas Rodrigues"
- git config --global user.email "jrc1@ifal.edu.br"
 
 exec $SHELL
  git --version
