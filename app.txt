@@ -1,0 +1,6 @@
+git-all
+neovim
+tmux
+tmuxinator
+virtualbox
+vagrant
